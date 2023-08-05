@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title%}
+History
+{% endblock %}
+
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Task-name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Scope</th>
+            <th scope="col">Opened</th>
+            <th scope="col">Closed</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for histo in historic %}
+        <tr>
+            <td>{{ histo["tname"] }}</td>
+            <td>{{ histo["maslow"] }}</td>
+            <td>{{ histo["size"] }}</td>
+            <td>{{ histo["sdate"] }}</td>
+            <td>{{ histo["cdate"] }}</td>
+            <td>
+                <form action="/history" method="post">
+                    <input type="hidden" name="back" id="back" value="{{ histo['id'] }}">
+                    <button type="submit" class="btn btn-outline-dark btn-sm">Reactivate</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

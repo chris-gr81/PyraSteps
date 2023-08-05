@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block title%}
+Home
+{% endblock %}
+
+{% block body %}
+<div class="col-sm-3 shadow p-4 mb-2 bg-white rounded">
+    <h5 class="mb-3"> Hello {{ username }}</h5>
+    <p class="mb-3"> You have {{ masl[0] }} open task(s):</p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <p class="mb-1">Self-actualisation: </p>
+            <small>Open tasks: {{ masl[1] }}</small>
+        </li>
+        <li class="list-group-item">
+            <p class="mb-1">Esteem needs: </p>
+            <small>Open tasks: {{ masl[2] }}</small>
+        </li>
+        <li class="list-group-item">
+            <p class="mb-1">Social needs: </p>
+            <small>Open tasks: {{ masl[3] }}</small>
+        </li>
+        <li class="list-group-item">
+            <p class="mb-1">Security needs: </p>
+            <small>Open tasks: {{ masl[4] }}</small>
+        </li>
+        <li class="list-group-item">
+            <p class="mb-1">Physological needs: </p>
+            <small>Open tasks: {{ masl[5] }}</small>
+        </li>
+    </ul>
+</div>
+<div class="col-sm-9 p-3 ">
+    <div class="row row-cols-1 wor cols-2-md-2 g-4">
+        <div class="card m-2 p-0 text-center shadow rounded" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="Card title">Self-actualisation</h5>
+                <small class="card-text">
+                    At the pinnacle of the pyramid is self-actualization. This is the highest level of human motivation,
+                    where individuals strive to fulfill their full potential, pursue personal growth,
+                    and achieve a deep sense of fulfillment and purpose.
+                </small>
+            </div>
+            <div class="card-footer">
+                <h3>{{ score["selfdev"] }} points</h3>
+            </div>
+        </div>
+        <div class="card m-2 p-0 text-center shadow rounded" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="Card title">Esteem needs</h5>
+                <small class="card-text">
+                    The fourth level involves the need for self-esteem and recognition.
+                    This includes both the desire for self-respect and the need for external
+                    recognition, achievements, and status. It is about the feedback we want to receive.
+                </small>
+            </div>
+            <div class="card-footer">
+                <h3>{{ score["ego"] }} points</h3>
+            </div>
+        </div>
+        <div class="card m-2 p-0 text-center shadow rounded" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="Card title">Social needs</h5>
+                <small class="card-text">
+                    The third level involves social needs, where people seek love,
+                    affection, and a sense of belonging. This includes forming meaningful relationships,
+                    being part of a community, and experiencing a sense of acceptance and connection.
+                </small>
+            </div>
+            <div class="card-footer">
+                <h3>{{ score["socials"] }} points</h3>
+            </div>
+        </div>
+        <div class="card m-2 p-0 text-center shadow rounded" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="Card title">Security needs</h5>
+                <small class="card-text">
+                    Once physiological needs are met, individuals seek safety and security.
+                    This includes protection from physical harm, a stable environment, financial security,
+                    and a sense of order and predictability in life.
+                </small>
+            </div>
+            <div class="card-footer">
+                <h3>{{ score["security"] }} points</h3>
+            </div>
+        </div>
+        <div class="card m-2 p-0 text-center shadow rounded" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="Card title">Physological needs</h5>
+                <small class="card-text">
+                    At the base of the pyramid are the most fundamental requirements for human survival,
+                    such as air, water, food, shelter, and sleep. These needs must be satisfied before
+                    an individual can progress to higher levels of motivation.
+                </small>
+            </div>
+            <div class="card-footer">
+                <h3>{{ score["physics"] }} points</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

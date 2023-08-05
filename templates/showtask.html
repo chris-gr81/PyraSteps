@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title%}
+show tasks
+{% endblock %}
+
+{% block body %}
+{% for data in datas %}
+
+<div class="card m-2 p-0 shadow rounded" style="width: 18rem;">
+    <div class="card-header">
+        {{ data["maslow"] }}
+    </div>
+    <div class="card-body">
+        <h6>{{ data["tname"] }}</h6>
+        <p>{{ data["description"] }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Scope: {{ data["size"] }}</li>
+        <li class="list-group-item">
+            Boosted: {{ data["boost"] }}
+        </li>
+    </ul>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col">
+                <form action="/showtask" method="post">
+                    <input type="hidden" name="boost" id="boost" value="{{ data['id'] }}">
+                    <button type="submit" class="btn btn-outline-dark btn-sm">Switch boost</button>
+                </form>
+            </div>
+            <div class="col">
+                <form action="/showtask" method="post">
+                    <input type="hidden" name="kill" id="kill" value="{{ data['id'] }}">
+                    <button type="submit" class="btn btn-outline-dark btn-sm">Task is done</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

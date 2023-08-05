@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title%}
+Delete
+{% endblock %}
+
+{% block body %}
+<div class="col">
+    <h3>Warning!</h3>
+    <p>This will delete your account.</p>
+    <p>There will be no more warning. </p>
+    <p>There will be no way back.</p>
+    <form action="/accdelete" method="post">
+        <input type="hidden" name="delete" id="delete" value="del">
+        <button type="submit" class="btn btn-outline-danger btn-sm">Delete account</button>
+    </form>
+</div>
+{% endblock %}
